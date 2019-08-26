@@ -21,10 +21,11 @@ build_android()
     --disable-ffplay \
     --disable-network \
     --disable-ffprobe \
-    --disable-avdevice \
     --disable-symver \
     --disable-programs \
     --disable-everything \
+    --enable-avdevice \
+    --enable-bsfs \
     --enable-filters \
     --enable-decoder=h264 \
     --enable-decoder=aac \
@@ -104,8 +105,10 @@ build_android()
     --enable-parser=aac \
     --enable-demuxers \
     --enable-muxer=mp4 \
+    --enable-muxer=ts \
     --enable-muxer=wav \
     --enable-muxer=adts \
+    --enable-indev=lavfi \
     --enable-protocols \
     --cross-prefix=$CROSS_PREFIX \
     --target-os=android \
@@ -129,6 +132,7 @@ build_android()
     $PREFIX/lib/libavformat.a \
     $PREFIX/lib/libavutil.a \
     $PREFIX/lib/libswscale.a \
+    $PREFIX/lib/libavdevice.a \
     -lc -lm -lz -ldl -llog --dynamic-linker=/system/bin/linker \
     $TOOLCHAIN/lib/gcc/arm-linux-androideabi/4.9.x/libgcc.a \
 
