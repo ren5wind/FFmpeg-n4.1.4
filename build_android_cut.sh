@@ -31,6 +31,8 @@ build_android()
     --enable-decoder=aac \
     --enable-decoder=mp3float \
     --enable-decoder=mp3 \
+    --enable-decoder=mp2 \
+    --enable-decoder=mpeg2video \
     --enable-decoder=mp3_at \
     --enable-decoder=mp3adufloat \
     --enable-decoder=mp3adu \
@@ -70,6 +72,8 @@ build_android()
     --enable-encoder=h264_videotoolbox \
     --enable-encoder=aac \
     --enable-encoder=mpeg4 \
+    --enable-encoder=mpeg2video \
+    --enable-encoder=mp2 \
     --enable-encoder=pcm_alaw \
     --enable-encoder=pcm_alaw_at \
     --enable-encoder=pcm_f32be \
@@ -105,7 +109,7 @@ build_android()
     --enable-parser=aac \
     --enable-demuxers \
     --enable-muxer=mp4 \
-    --enable-muxer=ts \
+    --enable-muxer=mpegts \
     --enable-muxer=wav \
     --enable-muxer=adts \
     --enable-indev=lavfi \
@@ -125,7 +129,7 @@ build_android()
     -L$SYSROOT/usr/lib \
     -L$PREFIX/lib \
     -soname libffmpeg.so -shared -nostdlib -Bsymbolic --whole-archive --no-undefined -o \
-    $PREFIX/libffmpeg.so \
+    $PREFIX/libffmpeg.a \
     $PREFIX/lib/libavcodec.a \
     $PREFIX/lib/libavfilter.a \
     $PREFIX/lib/libswresample.a \
